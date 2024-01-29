@@ -1,15 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/socialNetworkDB', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
 
-mongoose.connection.on('connected', () => {
-  console.log('Connected to MongoDB');
-});
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/socialNetworkDB')
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('Could not connect to MongoDB:', err));;
 
 // Initialize Express App
 const app = express();
