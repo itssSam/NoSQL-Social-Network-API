@@ -65,6 +65,7 @@ const thoughtController = {
         .then(thought => thought ? res.json(thought) : res.status(404).json({ message: 'No thought or reaction found with this id!' }))
         .catch(err => res.status(500).json(err));
     }
+    
 };
 
 module.exports = thoughtController;
